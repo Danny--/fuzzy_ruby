@@ -1,4 +1,4 @@
 fuzzy_ruby
 ==========
 
-Fuzzt finder for Ruby
+Fuzzy finder for Ruby
