@@ -1,12 +1,17 @@
 class Fuzzy
 
   def find(strings, input)
-    regexp = Regexp.new(build_regexp (input))
-    if strings =~ regexp
-      puts 'YES'
-    elsif
-      puts 'NO'
+    # build regular expression
+    regexp = /#{build_regexp(input)}/
+
+    # for each string, calculate weight
+    for string in strings
+      # puts string
+      assign_weights(string, regexp)
     end
+
+    # return array of strings in decreasing weight order
+
   end
 
   private
@@ -14,11 +19,17 @@ class Fuzzy
     def build_regexp(string)
       regexp = ""
       string.each_char do |c|
-        regexp << ".*#{c}"
+        regexp << "(\w*)#{c}"
       end
+      regexp << "(\w*)"
+    end
+
+    def assign_weights(string, regexp)
+      weight = string =~ regexp
+      # puts weight
     end
 
 end
 
 f = Fuzzy.new
-f.find("test", "tes")
+f.find(["test", "aadsffatest"], "tes")
