@@ -1,6 +1,6 @@
 class Fuzzy
 
-  def find(strings, input)
+  def self.find(strings, input)
     # array to store weights of each string
     @weights = Array.new(strings.length, -1)
 
@@ -32,36 +32,33 @@ class Fuzzy
     end
 
     return ret
-
   end
 
-  private
-
-    # build the regular expression
-    def build_regexp(string)
-      regexp = ""
-      string.each_char do |c|
-        regexp << "(\w*)#{c}"
-      end
-      regexp << "(\w*)"
+  # build the regular expression
+  def self.build_regexp(string)
+    regexp = ""
+    string.each_char do |c|
+      regexp << "(\w*)#{c}"
     end
+    regexp << "(\w*)"
+  end
 
-    # recursive function to assign weight to string
-    # once there is match, removes one character from the reg exp and repeat
-    def assign_weights(index, regexp)
-      weight = @strings[index] =~ regexp
-      if weight == nil
-        return
-      end
-      @weights[index] += weight
-      if !done(index)
-        @strings[index] = @strings[index][weight+1..@strings[index].length]
-        assign_weights(index, /#{regexp.source[5..regexp.source.length]}/)
-      end
+  # recursive function to assign weight to string
+  # once there is match, removes one character from the reg exp and repeat
+  def self.assign_weights(index, regexp)
+    weight = @strings[index] =~ regexp
+    if weight == nil
+      return
     end
+    @weights[index] += weight
+    if !done(index)
+      @strings[index] = @strings[index][weight+1..@strings[index].length]
+      assign_weights(index, /#{regexp.source[5..regexp.source.length]}/)
+    end
+  end
 
-    def done(index)
-      @strings[index] == nil || @weights[index] == -1 ? true : false
-    end
+  def self.done(index)
+    @strings[index] == nil || @weights[index] == -1 ? true : false
+  end
 
 end
