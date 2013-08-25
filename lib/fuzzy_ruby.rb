@@ -57,8 +57,11 @@ class Fuzzy
     end
   end
 
+  # done with string if no more matches
   def self.done(index)
     @strings[index] == nil || @weights[index] == -1 ? true : false
   end
+
+  private_class_method :build_regexp, :assign_weights, :done
 
 end
