@@ -50,7 +50,7 @@ class Fuzzy
     if weight == nil
       return
     end
-    @weights[index] += weight
+    @weights[index] += (weight+1)
     if !done(index)
       @strings[index] = @strings[index][weight+1..@strings[index].length]
       assign_weights(index, /#{regexp.source[5..regexp.source.length]}/)
