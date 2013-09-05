@@ -1,6 +1,7 @@
 class Fuzzy
 
   def self.find(strings, input)
+
     # array to store weights of each string
     @weights = Array.new(strings.length, -1)
 
@@ -52,6 +53,8 @@ class Fuzzy
     end
     @weights[index] += (weight+1)
     if !done(index)
+      # @strings[index] returns string at that index
+      # @strings[index][a..b] returns substring of that string
       @strings[index] = @strings[index][weight+1..@strings[index].length]
       assign_weights(index, /#{regexp.source[5..regexp.source.length]}/)
     end

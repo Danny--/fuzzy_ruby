@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'fuzzy_ruby'
-  s.version = '1.0.1'
+  s.version = '1.1.0'
   s.date = '2013-08-25'
   s.summary = "Fuzzy finder for Ruby"
   s.description = "Fuzzy finder for Ruby"
