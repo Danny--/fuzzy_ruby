@@ -17,6 +17,6 @@ http://rubygems.org/gems/fuzzy_ruby
 <br>
 => true
 <br>
-> Fuzzy.find(["danny", "dan"], "dan")
+> Fuzzy.find(["danny", "dan", "bill"], "dan")
 <br>
 => ["dan", "danny"]
