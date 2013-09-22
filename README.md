@@ -1,8 +1,8 @@
 # fuzzy_ruby
 
-Fuzzy finder for Ruby
-<br>
 http://rubygems.org/gems/fuzzy_ruby
+<br>
+Fuzzy finder for Ruby
 
 ## Input
 
